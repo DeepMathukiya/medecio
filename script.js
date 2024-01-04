@@ -2,7 +2,7 @@ function doctor_signup(){
     window.location.href='doctor_login.php'
 }
 function patient_signup(){
-    window.location.href='patient_login.html'
+    window.location.href='patient_login.php'
 }
 
 

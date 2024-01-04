@@ -221,19 +221,64 @@
           <label for="name" class="form__label">Female</label>
         </div>
         <div class="form__group field">
-          <input type="number" class="form__field" placeholder="Name" name="PeIssue" id='name' required />
+          <input type="number" class="form__field" placeholder="Name" name="Phone" id='name' required />
           <label for="name" class="form__label">Mobile Number</label>
         </div>
         <div class="form__group field">
           <input type="email" class="form__field" placeholder="Name" name="PeEmail" id='name' required />
           <label for="name" class="form__label">Email</label>
         </div>
+        <div class="form__group field">
+          <input type="Password" class="form__field" placeholder="Name" name="pass" id='name' required />
+          <label for="name" class="form__label">Password</label>
+        </div>
+        
         <div class="rec_submit_div">
           <input class="rec_submit" type="submit" name="submit" value="submit">
         </div>
 
       </form>
     </div>
+
+    <?php
+include 'connection.php';
+if(isset($_POST['submit'])){
+$PeName =$_POST['PeName'];
+$PeAge = $_POST['PeAge'];
+$Gender = $_POST['Gender'];
+$email = $_POST['PeEmail'];
+$Phone = $_POST['Phone'];
+
+$pass = mysqli_real_escape_string($con,$_POST['pass']);
+$cpass =password_hash($pass,PASSWORD_BCRYPT);  
+
+$selemail = "select * from registration_patient where email ='$email'";
+$emailres = mysqli_query($con,$selemail);
+$emailcount= mysqli_num_rows($emailres);
+if($emailcount>0){
+    ?>
+    <script>
+        alert("This email is alredy exist");
+        location.replace('doctor_login.php');
+
+        </script>
+        <?php
+}
+else {
+        $insertQue = "insert into registration_patient(name,DOB,Gender,email,pass,Phone) values ('$PeName','$PeAge','$Gender','$email','$cpass','$Phone')";
+        $res = mysqli_query($con,$insertQue);
+        if($res){
+            ?>
+            <script>
+                    alert('Succesfully inserted');
+                    location.replace('doctor_login.php');
+            </script>
+            <?php 
+             }
+
+}
+}
+?>
 </body>
 
 </html>
