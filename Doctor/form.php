@@ -1,3 +1,6 @@
+<?php
+                    session_start();
+                    ?>
 <html>
 
 <head>
@@ -267,10 +270,25 @@ background-image: linear-gradient(to right, aqua, #11998e);
         .change{
             top: -30;
         }
+        #popupBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 25vw;
+  height: 25vw;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+  background-color: #3fbbc0;
+}
     </style>
 </head>
 
 <body>
+   
     <?php
 
          include '../connection.php';
@@ -321,7 +339,7 @@ background-image: linear-gradient(to right, aqua, #11998e);
                 </div>
                 <!-- ---------------------------------- -->
                 <div class="form__group field">
-                    <textarea class="form__field" name="PeDES" id="Description" cols="30" rows="10" required></textarea>
+                    <textarea class="form__field" name="PeDES" id="Description" cols="30" rows="10" ></textarea>
                     <label for="name" class="form__label change">Description</label>
 
                 </div>
@@ -335,25 +353,29 @@ background-image: linear-gradient(to right, aqua, #11998e);
                 </div>
                 <!-- ----------------------------------- -->
                 <div class="form__group field">
-                    <textarea class="form__field" name="Pecare" id="Advice" cols="30" rows="10" required></textarea>
+                    <textarea class="form__field" name="Pecare" id="Advice" cols="30" rows="10" ></textarea>
 
                     <label for="name" class="form__label change">Advice</label>
 
 
                 </div>
                 <div class="rec_submit_div">
-                    <input class="rec_submit" type="submit" name="submit" value="submit">
+                    <input class="rec_submit" type="submit" name="submit" value="submit" id="submitbtn">
                 </div>
             </form>
+            
                 <?php
         include "../connection.php";
+        
 if(isset($_POST['submit'])){
     $id= $_GET['id'];
     $PeName =$_POST['PeName'];
+    $_SESSION['PeName']= $PeName;
     $PeAge = $_POST['PeAge'];
     $PeEmail = $_POST['PeEmail'];
     $PeIssue = $_POST['PeIssue'];
     $PeDES = $_POST['PeDES'];
+    $_SESSION['PeDES']= $PeDES;
     $Pecare = $_POST['Pecare'];
     $email = $_COOKIE['emailid'];
     $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);  
@@ -363,7 +385,76 @@ if(isset($_POST['submit'])){
 
 }                
  ?>
+
+
+<div id="popupBox" style="display: none;">
+<div class="form-check">
+    <form action="" method="post">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" name="checkboxpop" id="checkboxpop" value="1">
+    Enter the pharmaciest
+  </label>
+
+  <div class="form-group" id="emailFieldpopup" style="display: none;">
+  <label for="">Mail of pharmaciest</label>
+  <input type="email" name="pmail"  class="form-control" placeholder="" aria-describedby="helpId">
+</div>
+    <input type="submit" name="submitBtnpop" id="submitBtnpop" value="Done" class="btn btn-primary">
+
+
+  </form>
+
+
+
+  <?php
+    if(isset($_POST['submitBtnpop'])){
+        if($_POST['checkboxpop'] == 1 ){
+            $mail = $_POST['pmail'];
+            ?>
+            <script>
+location.replace("mail.php?mail=<?php echo $mail;?>");
+                </script>
+            <?php 
+        }
+        else{
+            ?>
+<script>
+    location.replace("doctor.php");
+</script>
+<?php
+        }
+
+    }
+
+
+?>
+</div>
+</div>
+
 </body>
 <script src="speech.js"></script>
+<script>
+document.getElementById('submitbtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('popupBox').style.display = 'flex';
+
+});
+document.getElementById('checkboxpop').addEventListener('change', function() {
+    var emailField = document.getElementById('emailFieldpopup');
+    if(this.checked) {
+        emailField.style.display = 'block';
+    } else {
+        emailField.style.display = 'none';
+    }
+});
+document.getElementById('checkboxpop').addEventListener('change', function() {
+    var submit = document.getElementById('submitBtn');
+    if(this.checked) {
+        submit.value = 'Pharmaciest';
+    } else {
+        submit.value = 'Done';
+    }
+});
+</script>
 
 </html>
