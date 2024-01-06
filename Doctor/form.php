@@ -1,6 +1,3 @@
-<?php
-                    session_start();
-                    ?>
 <html>
 
 <head>
@@ -178,44 +175,54 @@
             opacity: 0;
             visibility: hidden;
         }
-        .vcbtn{
+
+        .vcbtn {
             display: flex;
             justify-content: center;
             transition: display 0.5s linear;
             margin-top: 10px;
 
         }
-        .done{
+
+        .done {
             display: flex;
             border: 3px solid #3fbbc0;
             width: fit-content;
             padding: 10px 30px;
             border-radius: 20px;
-            transition:  background-color 0.3s linear;
+            transition: background-color 0.3s linear;
         }
-        .done:hover{
+
+        .done:hover {
             cursor: pointer;
             background-color: #3fbbc0;
-        }#stop1,#stop2{
+        }
+
+        #stop1,
+        #stop2 {
             display: none;
         }
-        .rec_submit_div{
-  display:flex;
-  justify-content:center;
-}
-.rec_submit{
-  font-size:15px;
-  width:150px;
-  height:40px;
-  margin-top: 50px;
-  padding:5px 10px;
-  border-radius:20px;
-  background-color:white;
-}
-.rec_submit:hover{
-background-image: linear-gradient(to right, aqua, #11998e);
-}
-.vcbtn {
+
+        .rec_submit_div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .rec_submit {
+            font-size: 15px;
+            width: 150px;
+            height: 40px;
+            margin-top: 50px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            background-color: white;
+        }
+
+        .rec_submit:hover {
+            background-image: linear-gradient(to right, aqua, #11998e);
+        }
+
+        .vcbtn {
             display: flex;
             justify-content: center;
             transition: display 0.5s linear;
@@ -267,93 +274,90 @@ background-image: linear-gradient(to right, aqua, #11998e);
         .extra {
             height: 50px;
         }
-        .change{
+
+        .change {
             top: -30;
         }
+
         #popupBox {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 25vw;
-  height: 25vw;
-  background: rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 2em;
-  background-color: #3fbbc0;
-}
+            position: fixed;
+            top: 0;
+            left: center;
+            width: 25vw;
+            height: 25vw;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2em;
+            background-color: #3fbbc0;
+        }
     </style>
 </head>
 
 <body>
-   
+
+
     <?php
 
-         include '../connection.php';
-         $ids = $_GET['id'];
-         $email = $_COOKIE['emailid'];
-         $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);       
-         $showqu = "select * from $tableName where id={$ids}";
-         $showdat = mysqli_query($con,$showqu);
-         $arr = mysqli_fetch_array($showdat);
+
+
+    include '../connection.php';
+    $ids = $_GET['id'];
+    $email = $_COOKIE['emailid'];
+    $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
+    $showqu = "select * from $tableName where id={$ids}";
+    $showdat = mysqli_query($con, $showqu);
+    $arr = mysqli_fetch_array($showdat);
 
 
 
-         ?>
+    ?>
     <div class="container">
         <div class="header">
             <h3><a href="doctor.php">Patient Update</a></h3>
         </div>
 
         <div class="form">
-        <form action="" method="POST">
+            <form action="" method="POST">
                 <div class="form__group field">
-                    <input type="text" class="form__field" placeholder="Name" name="PeName" id='name'
-                        value="<?php echo $arr['PeName'];?>" required />
+                    <input type="text" class="form__field" placeholder="Name" name="PeName" id='name' value="<?php echo $arr['PeName']; ?>" required />
                     <label for="name" class="form__label">Name</label>
                 </div>
                 <div class="form__group field">
-                    <input type="number" class="form__field" placeholder="Name" name="PeAge" id='name'
-                        value="<?php echo $arr['PeAge'];?>" required />
+                    <input type="number" class="form__field" placeholder="Name" name="PeAge" id='name' value="<?php echo $arr['PeAge']; ?>" required />
                     <label for="name" class="form__label">Age</label>
                 </div>
                 <div class="form__group field">
-                    <input type="text" class="form__field" placeholder="Name" name="PeEmail" id='name'
-                        value="<?php echo $arr['PeEmail'];?>" required />
+                    <input type="text" class="form__field" placeholder="Name" name="PeEmail" id='name' value="<?php echo $arr['PeEmail']; ?>" required />
                     <label for="name" class="form__label">Email</label>
                 </div>
                 <div class="form__group field">
-                    <input type="text" class="form__field" placeholder="Name" name="PeIssue" id='name'
-                        value="<?php echo $arr['PeIssue'];?>" required />
+                    <input type="text" class="form__field" placeholder="Name" name="PeIssue" id='name' value="<?php echo $arr['PeIssue']; ?>" required />
                     <label for="name" class="form__label">Issue</label>
                 </div>
                 <div class="extra"></div>
                 <!-------------- This section ------------>
                 <div class="vcbtn">
-                    <div title="click to start recording" class="done" id="start1"><i class="fa-solid fa-play"
-                            style="color: #000000;"></i></div>
-                    <div title="click to stop recording" class="done" id="stop1"><i class="fa-solid fa-stop"
-                            style="color: #000000;"></i></div>
+                    <div title="click to start recording" class="done" id="start1"><i class="fa-solid fa-play" style="color: #000000;"></i></div>
+                    <div title="click to stop recording" class="done" id="stop1"><i class="fa-solid fa-stop" style="color: #000000;"></i></div>
                 </div>
                 <!-- ---------------------------------- -->
                 <div class="form__group field">
-                    <textarea class="form__field" name="PeDES" id="Description" cols="30" rows="10" ></textarea>
+                    <textarea class="form__field" name="PeDES" id="Description" cols="30" rows="10"></textarea>
                     <label for="name" class="form__label change">Description</label>
 
                 </div>
                 <div class="extra"></div>
                 <!------------ This section --------------->
                 <div class="vcbtn">
-                    <div title="click to start recording" class="done" id="start2"><i class="fa-solid fa-play"
-                            style="color: #000000;"></i></div>
-                    <div title="click to stop recording" class="done" id="stop2"><i class="fa-solid fa-pause"
-                            style="color: #000000;"></i></div>
+                    <div title="click to start recording" class="done" id="start2"><i class="fa-solid fa-play" style="color: #000000;"></i></div>
+                    <div title="click to stop recording" class="done" id="stop2"><i class="fa-solid fa-pause" style="color: #000000;"></i></div>
                 </div>
                 <!-- ----------------------------------- -->
                 <div class="form__group field">
-                    <textarea class="form__field" name="Pecare" id="Advice" cols="30" rows="10" ></textarea>
+                    <textarea class="form__field" name="Pecare" id="Advice" cols="30" rows="10"></textarea>
 
                     <label for="name" class="form__label change">Advice</label>
 
@@ -363,98 +367,96 @@ background-image: linear-gradient(to right, aqua, #11998e);
                     <input class="rec_submit" type="submit" name="submit" value="submit" id="submitbtn">
                 </div>
             </form>
-            
-                <?php
-        include "../connection.php";
-        
-if(isset($_POST['submit'])){
-    $id= $_GET['id'];
-    $PeName =$_POST['PeName'];
-    $_SESSION['PeName']= $PeName;
-    $PeAge = $_POST['PeAge'];
-    $PeEmail = $_POST['PeEmail'];
-    $PeIssue = $_POST['PeIssue'];
-    $PeDES = $_POST['PeDES'];
-    $_SESSION['PeDES']= $PeDES;
-    $Pecare = $_POST['Pecare'];
-    $email = $_COOKIE['emailid'];
-    $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);  
-    $updateque = " update $tableName set PeName='$PeName',PeAge='$PeAge',
+
+
+            <div id="popupBox" style="display: none;">
+                <div class="form-check">
+                    <form action="" method="post">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input" name="checkboxpop" id="checkboxpop" value="1">
+                            Enter the pharmaciest
+                        </label>
+
+                        <div class="form-group" id="emailFieldpopup" style="display: none;">
+                            <label for="">Mail of pharmaciest</label>
+                            <input type="email" name="pmail" id="mail" class="form-control" placeholder="" aria-describedby="helpId">
+                        </div>
+                        <input type="submit" name="submitBtnpop" id="submitBtnpop" value="Done" class="btn btn-primary">
+
+
+                    </form>
+
+
+
+
+
+                    <?php
+                    include "../connection.php";
+
+                    if (isset($_POST['submit'])) {
+                        $id = $_GET['id'];
+                        $PeName = $_POST['PeName'];
+                        $PeAge = $_POST['PeAge'];
+                        $PeEmail = $_POST['PeEmail'];
+                        $PeIssue = $_POST['PeIssue'];
+                        $PeDES = $_POST['PeDES'];
+                        $Pecare = $_POST['Pecare'];
+                        $email = $_COOKIE['emailid'];
+                        $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
+                        $updateque = " update $tableName set PeName='$PeName',PeAge='$PeAge',
     PeEmail='$PeEmail',PeIssue='$PeIssue' ,PeDES='$PeDES' ,Pecare='$Pecare' where id = $id ";
-    $res = mysqli_query($con,$updateque);
+                        $res = mysqli_query($con, $updateque);
+                        if ($res) {
+                    ?>
+                            <script>
+                                document.getElementById('popupBox').style.display = 'flex';
+                            </script>
+                        <?php
 
-}                
- ?>
+                        }
+                    }
 
-
-<div id="popupBox" style="display: none;">
-<div class="form-check">
-    <form action="" method="post">
-  <label class="form-check-label">
-    <input type="checkbox" class="form-check-input" name="checkboxpop" id="checkboxpop" value="1">
-    Enter the pharmaciest
-  </label>
-
-  <div class="form-group" id="emailFieldpopup" style="display: none;">
-  <label for="">Mail of pharmaciest</label>
-  <input type="email" name="pmail"  class="form-control" placeholder="" aria-describedby="helpId">
-</div>
-    <input type="submit" name="submitBtnpop" id="submitBtnpop" value="Done" class="btn btn-primary">
-
-
-  </form>
-
-
-
-  <?php
-    if(isset($_POST['submitBtnpop'])){
-        if($_POST['checkboxpop'] == 1 ){
-            $mail = $_POST['pmail'];
-            ?>
-            <script>
-location.replace("mail.php?mail=<?php echo $mail;?>");
-                </script>
-            <?php 
-        }
-        else{
-            ?>
+                    if (isset($_POST['submitBtnpop'])) {
+                        if ($_POST['checkboxpop'] == "1") {
+                            $mails = $_POST['pmail'];
+                            ?>
 <script>
-    location.replace("doctor.php");
+    location.replace("mail.php?mail=<?php echo $mails;?>&id=<?php echo $ids;?>");
 </script>
-<?php
-        }
 
-    }
+                            <?php
+                            header("Location:mail.php/?mail=$mails/?id=$id");
+                        } else {
+                        ?>
+                            <script>
+                                location.replace("doctor.php");
+                            </script>
+                    <?php
+                        }
+                    }
 
 
-?>
-</div>
-</div>
+                    ?>
+                </div>
+            </div>
 
 </body>
 <script src="speech.js"></script>
 <script>
-document.getElementById('submitbtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('popupBox').style.display = 'flex';
+    document.getElementById('checkboxpop').addEventListener('change', function() {
+        var emailField = document.getElementById('emailFieldpopup');
+        var submit = document.getElementById('submitBtnpop');
 
-});
-document.getElementById('checkboxpop').addEventListener('change', function() {
-    var emailField = document.getElementById('emailFieldpopup');
-    if(this.checked) {
-        emailField.style.display = 'block';
-    } else {
-        emailField.style.display = 'none';
-    }
-});
-document.getElementById('checkboxpop').addEventListener('change', function() {
-    var submit = document.getElementById('submitBtn');
-    if(this.checked) {
-        submit.value = 'Pharmaciest';
-    } else {
-        submit.value = 'Done';
-    }
-});
+        if (this.checked) {
+            emailField.style.display = 'block';
+            submit.value = 'Mail to Pharmaciest';
+
+        } else {
+            emailField.style.display = 'none';
+            submit.value = 'Done';
+
+        }
+    });
 </script>
 
 </html>

@@ -1,13 +1,27 @@
-<?php  
-session_start();
+
+<?php
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+include '../connection.php';
 
 $mails = $_GET['mail'];
-$PeDec = $_SESSION['PeDES'];
-$PeName = $_SESSION['PeName'];
+$id = $_GET['id'];
+$email = $_COOKIE['emailid'];
+$tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
+$showqu = "select * from $tableName where id={$id}";
+$showdat = mysqli_query($con, $showqu);
+$arr = mysqli_fetch_array($showdat);
+$PeName = $arr['PeName'];
+$PeDES = $arr['PeDES'];
+$bodyt = "<p>
+<b>hey $mails,</b>
+<br>
+<br>
+This is a prescription of patient $PeName,<br>
+Here it is <br><b> $PeDES</b> </p>
+";
 
 //Load Composer's autoloader
 require 'phpMailer\Exception.php';
@@ -29,16 +43,16 @@ try {
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom($mails, $mails);
+    $mail->addAddress($mails, $mails);     //Add a recipient
     
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = "Description of the patient $peName";
-    $mail->Body    = $PeDec;
+    $mail->Subject = "Presription of the patient ". $PeName;
+    $mail->Body    = "$bodyt";
 
     $mail->send();
-    header("Location: Doctor/doctor.php");
+    header("Location: doctor.php");
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
