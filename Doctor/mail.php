@@ -24,9 +24,9 @@ Here it is <br><b> $PeDES</b> </p>
 ";
 
 //Load Composer's autoloader
-require 'phpMailer\Exception.php';
-require 'phpMailer\PHPMailer.php';
-require 'phpMailer\SMTP.php';
+require '..\phpMailer\Exception.php';
+require '..\phpMailer\PHPMailer.php';
+require '..\phpMailer\SMTP.php';
 
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);

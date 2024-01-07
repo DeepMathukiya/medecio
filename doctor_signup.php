@@ -95,7 +95,7 @@ session_start();
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> <a href="doctor_signup.php" class="active">Sign Up </a> / <a href="doctor_login.php">Login</a></p>
 
-                                    <form class="mx-1 mx-md-4" method="POST" action ="">
+                                    <form class="mx-1 mx-md-4" method="POST" action ="" id = "form1">
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -179,12 +179,28 @@ session_start();
                                             </div>
                                         </div>
 
-                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input type = "submit" value = "Register" class="btn btn-primary btn-lg" name = "submit1">
-                                        </div>
-                                        
+                                       
 
-                                    </form>
+
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <input type = "submit" value = "Get OTP" id = "OTP" class="btn btn-primary btn-lg" name = "submit1">
+                                        </div>
+    </form>
+
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="Text" name="OTPVerify" id
+                                                ="OTPverify" class="form-control" style="display:none;" />
+                                                <label class="form-label" for="form3Example4cd" style="display:none;">
+                                                    OTP</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <input type = "submit" value = "Register" id = "insert" class="btn btn-primary btn-lg" name ="Register" style="display:none;">
+                                        </div>
+
                                     </div>
                                                                   
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
@@ -226,6 +242,12 @@ if($emailcount>0){
         <?php
 }
 else {
+    ?>
+    <script>
+        
+    </script>
+<?php
+$otp = $_POST['OTPverify'];
         $insertQue = "insert into registration(name,cname,number,email,pass,location,spciality) values ('$name','$cname','$number','$email','$cpass','$PeLocation','$spciality')";
         $res = mysqli_query($con,$insertQue);
         if($res){
@@ -239,6 +261,7 @@ else {
 
 }
 }
+
 ?>
 <script>
     
