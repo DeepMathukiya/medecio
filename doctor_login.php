@@ -78,6 +78,15 @@
         $noOfRow = mysqli_num_rows($resQue);
         if($noOfRow){
             $row = mysqli_fetch_assoc($resQue);
+            if($row['Status'] != "Active"){
+                ?>
+                <script>
+                    alert("Please verify your email first");
+                    location.replace("verify.php?email=<?php echo $email;?>");
+                    </script>
+                    <?php
+            }
+            else{
             $get_pass = $row['pass'];
             $_SESSION['username'] = $row['name'];
             if(password_verify($pass, $get_pass)){
@@ -112,6 +121,7 @@
                         }
                       
             }
+        
             else{
                 ?>
                 <script>
@@ -119,6 +129,7 @@
                     </script>
                     <?php
             }
+        }
         }else{
             ?>
             <script>
