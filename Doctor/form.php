@@ -368,7 +368,7 @@
                 </div>
             </form>
 
-
+                <!-- Frontend of this popup box when you click submit this box will execute -->
             <div id="popupBox" style="display: none;">
                 <div class="form-check">
                     <form action="" method="post">

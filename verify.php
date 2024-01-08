@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
+
+  <!-- Frontend of this form  -->
   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
   <form method="POST" id="OTP1" action="">
