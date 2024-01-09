@@ -241,6 +241,10 @@
     </div>
 
     <?php
+    
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
 include 'connection.php';
 if(isset($_POST['submit'])){
 $PeName =$_POST['PeName'];
@@ -265,19 +269,52 @@ if($emailcount>0){
         <?php
 }
 else {
-        $insertQue = "insert into registration_patient(name,DOB,Gender,email,pass,Phone) values ('$PeName','$PeAge','$Gender','$email','$cpass','$Phone')";
+  require 'phpMailer\Exception.php';
+  require 'phpMailer\PHPMailer.php';
+  require 'phpMailer\SMTP.php';
+ 
+      $rand = rand(1000 ,9999);
+        $insertQue = "insert into registration_patient(name,DOB,Gender,email,pass,Phone,OTP) values ('$PeName','$PeAge','$Gender','$email','$cpass','$Phone','$rand')";
         $res = mysqli_query($con,$insertQue);
         if($res){
+                
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->isSMTP();                                            //Send using SMTP
+    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    $mail->Username   = 'health.link987@gmail.com';                     //SMTP username
+    $mail->Password   = 'kzxc rflc dwma jngh';                               //SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->addAddress($email, $PeName);     //Add a recipient
+    
+
+    //Content
+    $mail->isHTML(true);                                  //Set email format to HTML
+    $mail->Subject = "OTP for registration ";
+    $mail->Body    = "$rand";
+
+    $mail->send();
             ?>
             <script>
-                    alert('Succesfully inserted');
-                    location.replace('doctor_login.php');
+                    location.replace("verifyp.php?email=<?php echo $email; ?>");
             </script>
-            <?php 
+            <?php
+            } catch (Exception $e) {
+              echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+          } 
              }
 
 }
 }
+
 ?>
 </body>
 
