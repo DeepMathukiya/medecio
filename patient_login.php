@@ -278,7 +278,7 @@ else {
         $res = mysqli_query($con,$insertQue);
         if($res){
                 
-//Create an instance; passing `true` enables exceptions
+//Create an instance; passing `true` enables excep+tions
 $mail = new PHPMailer(true);
 
 try {
