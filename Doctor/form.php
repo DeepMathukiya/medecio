@@ -3,13 +3,9 @@
 <head>
     <title>For Receptientist</title>
     <script src="https://kit.fontawesome.com/50c045cb63.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
-        .header {
-            display: flex;
-            width: 50vw;
-            justify-content: center;
-        }
-
         .header a {
             text-decoration: none;
             color: #3fbbc0;
@@ -91,6 +87,7 @@
             justify-content: center;
             align-items: center;
             font-size: 1.5rem;
+            background: #f8f9fa;
         }
 
 
@@ -100,7 +97,7 @@
             margin-bottom: 200px;
         }
 
-        button {
+        /* button {
             font-family: 'Ubuntu', sans-serif;
             position: absolute;
             top: 50%;
@@ -120,7 +117,7 @@
             cursor: pointer;
             overflow: hidden;
             transition: all .35s;
-        }
+        } */
 
         button:hover {
             background: #3fbbc0;
@@ -156,7 +153,7 @@
             transition: all .35s;
         }
 
-        button.is_active {
+        /* button.is_active {
             width: 40px;
             height: 40px;
         }
@@ -174,7 +171,7 @@
         button.is_active span {
             opacity: 0;
             visibility: hidden;
-        }
+        } */
 
         .vcbtn {
             display: flex;
@@ -279,23 +276,29 @@
             top: -30;
         }
 
-        #popupBox {
-            position: fixed;
-            top: 0;
-            left: center;
-            width: 25vw;
-            height: 25vw;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 2em;
-            background-color: #3fbbc0;
+        .container{
+            max-width:600px;
+            background-color:#fff;
+            border-radius:20px;
+            margin:20px;
+            padding: 40px 20px;
+        }
+        .form-check-label{
+            font-size:20px;
+            margin:10px 20%;
+        }
+        .form-group{
+            width:80%;
+            margin:auto;
+        }
+        .form-group label {
+    font-size: 20px;
+    margin: 0 20%;
+        }
+        .form-group input {
+            height:30px;
         }
     </style>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -318,7 +321,7 @@
     ?>
     <div class="container">
         <div class="header">
-            <h3><a href="doctor.php">Patient Update</a></h3>
+           <h3 class="text-center"><a href="doctor.php">Patient Update</a></h3> 
         </div>
 
         <div class="form">
@@ -365,47 +368,13 @@
 
 
                 </div>
-                
-                    <!-- <input data-bs-toggle="modal" data-bs-target="#exampleModal" class="rec_submit" type="submit" name="submit" value="submit" id="togle"> -->
-
-                    <!-- <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="rec_submit" type="submit" name="submit" value="submit"></button> -->
-
-                    <button data-bs-toggle="modal" id="togle" name="submit" type="submit" data-bs-target="#exampleModal" >submit</button>
-                
+                <div class="rec_submit_div">
+                    <input  class="rec_submit" type="submit" name="submit" value="submit" id="submitbtn">
+                </div>
             </form>
 
-<!-- popupn -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Contact Us</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Click Contact Now to send Mail. We will respond to your mail soon. <br> *This is not official PDEU
-                    website.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="mailto:pdpuelibrary@gmail.com"><button type="button" class="btn btn-primary">Contact
-                            Now</button></a>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <a class="dropdown-item" href="#" data-bs-toggle="modal" id="togle"
-                                                data-bs-target="#exampleModal">Contact Us</a>
-
-                                                
-
-            
-
                 <!-- Frontend of this popup box when you click submit this box will execute -->
-            <div id="popupBox" style="display: none;">
+            <!-- <div id="popupBox" style="display: none;">
                 <div class="form-check">
                     <form action="" method="post">
                         <label class="form-check-label">
@@ -421,6 +390,50 @@
 
 
                     </form>
+            </div> -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+               <form action="" method="post"> 
+               <label class="form-check-label text-center">
+                            <input type="checkbox" class="form-check-input text-center" name="checkboxpop" id="checkboxpop" value="1">
+                            Enter the pharmaciest
+                        </label>
+
+                        <div class="form-group" id="emailFieldpopup" style="display: none;">
+                            <label for="mail">Mail of pharmaciest</label>
+                            <input type="email" name="pmail" id="mail" class="form-control" placeholder="" aria-describedby="helpId">
+                        </div>
+               </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn_style" data-bs-dismiss="modal">Close</button>
+                    <button name="submitBtnpop" id="submitBtnpop" type="submit" class="btn btn_style btn-primary">Done
+                            </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a id="toggle" class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="display:none;"></a>
+
+
+<script>
+    submitbtn = document.getElementById("submitbtn");
+    toggle = document.getElementById("toggle");
+    submitbtn.addEventListener("click",(e)=>{ 
+        e.preventDefault();
+        console.log("hello")
+        toggle.click();
+    })
+
+</script>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
 
 
 
@@ -439,7 +452,7 @@
                         $email = $_COOKIE['emailid'];
                         $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
                         $updateque = " update $tableName set PeName='$PeName',PeAge='$PeAge',
-                        PeEmail='$PeEmail',PeIssue='$PeIssue' ,PeDES='$PeDES' ,Pecare='$Pecare' where id = $id ";
+    PeEmail='$PeEmail',PeIssue='$PeIssue' ,PeDES='$PeDES' ,Pecare='$Pecare' where id = $id ";
                         $res = mysqli_query($con, $updateque);
                         if ($res) {
                     ?>
@@ -474,9 +487,6 @@
                     ?>
                 </div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
 
 </body>
 <script src="speech.js"></script>
@@ -496,6 +506,5 @@
         }
     });
 </script>
-
 
 </html>
