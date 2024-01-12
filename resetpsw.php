@@ -41,10 +41,10 @@
         </div></div>
         <div class="form_input">
 
-        <div class="form-outline  mt-5">
+        <div class="form-outline  mt-3">
           <input type="password" name="conpass" id="" class="form-control" placeholder="new password" aria-describedby="helpId">
         </div></div>
-        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 ">
+        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4 mt-5">
         <input type="submit"class="btn btn-primary btn-lg" value="ResetPassword" name = "submit">
         </div>
       </div>
