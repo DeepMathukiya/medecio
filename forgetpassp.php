@@ -62,7 +62,7 @@
     if (isset($_POST["submit"])){
         $email = $_POST["email"];
 
-        $query = "select * from registration where email = '$email'";
+        $query = "select * from registration_patient where email = '$email'";
         $res = mysqli_query($con , $query);
         $noOfRow = mysqli_num_rows($res);
         $arr = mysqli_fetch_array($res);
@@ -91,7 +91,7 @@ try {
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
     $mail->Subject = "Reset Passwordlink";
-    $mail->Body    = "Please reffer to below link <a href='http://localhost/medecio/resetpsw.php?pass=$pass'>link</a> ";
+    $mail->Body    = "Please reffer to below link <a href='http://localhost/medecio/resetpswp.php?pass=$pass'>link</a> ";
 
     $mail->send();
 
@@ -102,7 +102,7 @@ try {
         }else{
             ?>
 <script>alert("please Signup through this email");
-location.replace("doctor_signup.php");
+location.replace("patient_signup.php");
 </script>
             <?php
         }
