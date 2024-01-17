@@ -35,14 +35,14 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="email" name="email" id="form3Example3c" class="form-control" value="<?php if (isset($_COOKIE['emailid'])){echo$_COOKIE['emailid'];}?>" />
+                                                <input type="email" name="email" id="form3Example3c" class="form-control" value="<?php if (isset($_COOKIE['emailidp'])){echo$_COOKIE['emailid'];}?>" />
                                                 <label class="form-label" for="form3Example3c" >Your Email</label>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="form3Example4cd" name="pass" class="form-control" value = "<?php  if(isset($_COOKIE['pass'])) {echo$_COOKIE['pass'];}?>"/>
+                                                <input type="password" id="form3Example4cd" name="pass" class="form-control" value = "<?php  if(isset($_COOKIE['passp'])) {echo$_COOKIE['pass'];}?>"/>
                                                 <label class="form-label" for="form3Example4cd">
                                                     password</label>
                                             </div>
@@ -91,26 +91,26 @@
             $get_pass = $row['pass'];
             $_SESSION['username'] = $row['name'];
             if(password_verify($pass, $get_pass)){
-                        setcookie('emailid' ,$email, time()+86400);
-                        setcookie('pass' ,$pass, time()+86400);
+                        setcookie('emailidp' ,$email, time()+86400);
+                        setcookie('passp' ,$pass, time()+86400);
                        
                         $tableName = 'patient_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
                         $createTable = "create table IF NOT EXISTS $tableName(
                             id INT(255) AUTO_INCREMENT PRIMARY KEY,
-                            DoName varchar(255),
-                            DoEmail varchar(255),
-                            PeNumber varchar(255),
-                            Issue varchar(255),
-                            DES varchar(255),
-                            care varchar(255),
-                            date DATE
+                                DoName varchar(255),
+                                DoEmail varchar(255),
+                                DONumber varchar(255),
+                                Issue varchar(255),
+                                DES varchar(255),
+                                care varchar(255),
+                                date DATE
                     
                         );";
                         $result = mysqli_query($con, $createTable);
                         if($result){
                             ?>
                             <script>
-                            location.replace("patient/patient   .php");
+                            location.replace("patient/patient.php");
                                 </script>
                                 <?php
                         }

@@ -18,7 +18,7 @@
     <body>
     <?php
     include "../connection.php";
-    $email = $_COOKIE['emailid'];
+    $email = $_COOKIE['emailidp'];
     $tableName = 'patient_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
     $que = "select * from $tableName";
     $result = mysqli_query($con , $que);

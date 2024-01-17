@@ -307,7 +307,6 @@
     <?php
 
 
-
     include '../connection.php';
     $ids = $_GET['id'];
     $email = $_COOKIE['emailid'];
@@ -368,6 +367,16 @@
 
 
                 </div>
+                <label class="form-check-label text-center">
+                            <input type="checkbox" class="form-check-input text-center" name="checkboxpop" id="checkboxpop" value="1">
+                            Enter the pharmaciest
+                        </label>
+
+                        <div class="form-group" id="emailFieldpopup" style="display: none;">
+                            <label for="mail">Mail of pharmaciest</label>
+                            <input type="email" name="pmail" id="mail" class="form-control" placeholder="" aria-describedby="helpId">
+                        </div>
+                
                 <div class="rec_submit_div">
                     <input  class="rec_submit" type="submit" name="submit" value="submit" id="submitbtn">
                 </div>
@@ -392,51 +401,8 @@
                     </form>
             </div> -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-               <form action="" method="post"> 
-               <label class="form-check-label text-center">
-                            <input type="checkbox" class="form-check-input text-center" name="checkboxpop" id="checkboxpop" value="1">
-                            Enter the pharmaciest
-                        </label>
-
-                        <div class="form-group" id="emailFieldpopup" style="display: none;">
-                            <label for="mail">Mail of pharmaciest</label>
-                            <input type="email" name="pmail" id="mail" class="form-control" placeholder="" aria-describedby="helpId">
-                        </div>
-               </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn_style" data-bs-dismiss="modal">Close</button>
-                    <button name="submitBtnpop" id="submitBtnpop" type="submit" class="btn btn_style btn-primary">Done
-                            </button>
-
-                </div>
-            </div>
         </div>
     </div>
-
-    <a id="toggle" class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="display:none;"></a>
-
-
-<script>
-    submitbtn = document.getElementById("submitbtn");
-    toggle = document.getElementById("toggle");
-    submitbtn.addEventListener("click",(e)=>{ 
-        e.preventDefault();
-        console.log("hello")
-        toggle.click();
-    })
-
-</script>
-
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-
-
-
-
 
                     <?php
                     include "../connection.php";
@@ -452,38 +418,50 @@
                         $email = $_COOKIE['emailid'];
                         $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
                         $updateque = " update $tableName set PeName='$PeName',PeAge='$PeAge',
-    PeEmail='$PeEmail',PeIssue='$PeIssue' ,PeDES='$PeDES' ,Pecare='$Pecare' where id = $id ";
+                            PeEmail='$PeEmail',PeIssue='$PeIssue' ,PeDES='$PeDES' ,Pecare='$Pecare' where id = $id ";    
                         $res = mysqli_query($con, $updateque);
                         if ($res) {
-                    ?>
-                            <script>
-                                document.getElementById('popupBox').style.display = 'flex';
-                            </script>
-                        <?php
+                            $tableName2 = 'patient_' . preg_replace("/[^a-zA-Z0-9]+/", "", $PeEmail);
+                            $createTable = "create table IF NOT EXISTS $tableName2(
+                                id INT(255) AUTO_INCREMENT PRIMARY KEY,
+                                DoName varchar(255),
+                                DoEmail varchar(255),
+                                DONumber varchar(255),
+                                Issue varchar(255),
+                                DES varchar(255),
+                                care varchar(255),
+                                date DATE
+                        
+                            );";
+                            $result2 = mysqli_query($con, $createTable);
+                            $date = $arr['date'];
+                            $sel = "select * from registration where email = '$email'";
+                            $que3 = mysqli_query($con,$sel);
+                            $arr2 = mysqli_fetch_array($que3);
+                            $DoName = $arr2['name'];
+                            $DoNumber = $arr2['number'];
 
-                        }
-                    }
-
-                    if (isset($_POST['submitBtnpop'])) {
-                        if ($_POST['checkboxpop'] == "1") {
-                            $mails = $_POST['pmail'];
+                            $insert = "insert into $tableName2 (DoName,DoEmail,DoNumber,Issue,DES,date,care) values('$DoName','$email','$DoNumber', '$PeIssue','$PeDES','$date','$Pecare')";
+                            $result3 = mysqli_query($con, $insert);
+                            if ($_POST['checkboxpop'] == "1") {
+                                $mails = $_POST['pmail'];
+    
+                                ?>
+    <script>
+        location.replace("mail.php?mail=<?php echo $mails;?>&id=<?php echo $ids;?>");
+    </script>
+    
+                                <?php
+                            } else {
                             ?>
-<script>
-    location.replace("mail.php?mail=<?php echo $mails;?>&id=<?php echo $ids;?>");
-</script>
+                                <script>
+                                    location.replace("doctor.php");
+                                </script>
+                        <?php
+                            }
 
-                            <?php
-                            header("Location:mail.php/?mail=$mails/?id=$id");
-                        } else {
-                        ?>
-                            <script>
-                                location.replace("doctor.php");
-                            </script>
-                    <?php
                         }
                     }
-
-
                     ?>
                 </div>
             </div>
@@ -493,15 +471,12 @@
 <script>
     document.getElementById('checkboxpop').addEventListener('change', function() {
         var emailField = document.getElementById('emailFieldpopup');
-        var submit = document.getElementById('submitBtnpop');
 
         if (this.checked) {
             emailField.style.display = 'block';
-            submit.value = 'Mail to Pharmaciest';
 
         } else {
             emailField.style.display = 'none';
-            submit.value = 'Done';
 
         }
     });

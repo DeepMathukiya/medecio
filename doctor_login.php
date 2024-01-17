@@ -104,7 +104,8 @@
                             PeNumber varchar(255),
                             PeIssue varchar(255),
                             PeDES varchar(255),
-                            Pecare varchar(255)
+                            Pecare varchar(255),
+                            date Date
                         );";
                         $result = mysqli_query($con, $createTable);
                         if($result){
