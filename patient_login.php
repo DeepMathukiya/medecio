@@ -35,14 +35,14 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="email" name="email" id="form3Example3c" class="form-control" value="<?php if (isset($_COOKIE['emailidp'])){echo$_COOKIE['emailid'];}?>" />
+                                                <input type="email" name="email" id="form3Example3c" class="form-control" value="<?php if (isset($_COOKIE['emailidp'])){echo$_COOKIE['emailidp'];}?>" />
                                                 <label class="form-label" for="form3Example3c" >Your Email</label>
                                             </div>
                                         </div>
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" id="form3Example4cd" name="pass" class="form-control" value = "<?php  if(isset($_COOKIE['passp'])) {echo$_COOKIE['pass'];}?>"/>
+                                                <input type="password" id="form3Example4cd" name="pass" class="form-control" value = "<?php  if(isset($_COOKIE['passp'])) {echo$_COOKIE['passp'];}?>"/>
                                                 <label class="form-label" for="form3Example4cd">
                                                     password</label>
                                             </div>

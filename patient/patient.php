@@ -3,6 +3,8 @@
         <title>For Doctor</title>
         <script src="https://kit.fontawesome.com/50c045cb63.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <style>
     body {
   font-family: "Poppins", sans-serif;
@@ -16,6 +18,7 @@
     </style>
     </head>
     <body>
+        <div class="mt-5 "><a href="appointment.php"><button type="button" class="btn btn-primary">Book Appointement</button></a></div>
     <?php
     include "../connection.php";
     $email = $_COOKIE['emailidp'];
