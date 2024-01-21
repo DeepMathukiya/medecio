@@ -53,7 +53,11 @@
 
         // Get location of user
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(successFunction, errorFunction);
+            navigator.geolocation.getCurrentPosition(successFunction, errorFunction, {
+                enableHighAccuracy: true
+            ,timeout : 5000
+            ,maximumAge: 0}
+            );
         } else {
             alert('It seems like Geolocation, which is required for this page, is not enabled in your browser.');
         }
