@@ -35,11 +35,12 @@
                 })
                 .setLngLat([lng, lat])
                 .addTo(map);
-            locations.forEach(function(location) {
+            
+                locations.forEach(function(location) {
                 var el = document.createElement('img');
-        el.src = "p1.png";
-        el.width = '50'; // Replace with the desired width
-        el.height = '50';
+                el.src = "p1.png";
+                el.width = '50'; // Replace with the desired width
+                el.height = '50';
                 var marker2 = new mapboxgl.Marker({
                         element: el,
                         color: "#0000FF"
@@ -48,7 +49,22 @@
                     .addTo(map);
        
                     marker2.getElement().addEventListener('click', function() {
-        alert('Marker clicked!'+ location['id']);
+                  var x =document.getElementById("Appointment");
+                  
+                  x.style.marginTop = "100px";
+                  x.style.marginLeft = "20px";
+                  x.style.display = "flex";
+
+                  var det = document.getElementById("details");
+                    det.innerHTML = "Name : "+location['name'] + "<br> Email : "+location['email'] + "<br> Speciality : "+location['speciality'];
+
+                    var book = document.getElementById("Book");
+                    book.style.marginTop = "20px";
+                    book.addEventListener('click', function(){
+                        window.location.href = "book_appointment.php?docid="+location['id'];
+                    });
+                
+        // alert('Marker clicked!'+ location['id']);
     });
             });
             document.getElementById("PeLocation").value = [lng, lat]; // Set the value of the hidden input field to the marker's coordinates (by default to location of user)           
@@ -65,7 +81,7 @@
             ,timeout : 5000
             ,maximumAge: 0
             });
-        } else {
+        } else{
             alert('It seems like Geolocation, which is required for this page, is not enabled in your browser.');
         }
 
@@ -91,15 +107,19 @@
 
     $que = "Select * from registration where 1= 1";
     $res = mysqli_query($con, $que);
-    while ($arr = mysqli_fetch_array($res)) {
+    while ($arr = mysqli_fetch_assoc($res)) {
         if($arr['Status'] == "Active"){
         $location = explode(",", $arr['location']);
 
     ?><script>
             locations.push({
-                id: <?php echo $arr['id'] ?>,
-                lng: <?php echo $location[0] ?>,
-                lat: <?php echo $location[1] ?>
+                id: <?php echo $arr['id']; ?>,
+                lng: <?php echo $location[0]; ?>,
+                lat: <?php echo $location[1]; ?>,
+                name: <?php echo json_encode($arr['name']); ?>,
+                email:<?php echo json_encode($arr['email']); ?>,
+                speciality: <?php echo json_encode($arr['spciality']); ?>,
+             
             });
         </script>
     <?php
@@ -114,11 +134,20 @@
     </script>
 
 
-    <div class="mb-4">
-        <label for="PeLocation" class="form__label">Location</label>
-        <div id='map' style='width: 100%; height: 300px;'></div>
+    <div class="mb-4" style="positon:relative">
+     
+    <!-- <label for="PeLocation" class="form__label">Location</label> -->
+        <div id='map' style='width: 100%; height: 1000px;'></div>
+        <div class = "Appointment" id="Appointment" style="position:absolute ; top: 0; left: 0; background:white; display :flex;flex-direction:column;display:none;">
+        Details of Doctor 
+        <div id="details"></div>
+        <button id="Book">Book Appointment</button>
+        
+        
+    </div> 
         <input type="hidden" id="PeLocation" name="PeLocation">
     </div>
+
 
 
 </body>

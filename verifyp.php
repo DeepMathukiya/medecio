@@ -63,7 +63,7 @@
    
    $rand1 = rand(1000 ,9999);
    $email = $_GET['email'];
-   $que ="Update registration set OTP='$rand1' where email='$email'";
+   $que ="Update registration_patient set OTP='$rand1' where email='$email'";
    $res = mysqli_query($con,$que);
 if($res){
     $mail = new PHPMailer(true);
@@ -105,18 +105,18 @@ try {
   <?php
   include 'connection.php';
   $email = $_GET['email'];
-  $selemail = "select * from registration where email ='$email'";
+  $selemail = "select * from registration_patient where email ='$email'";
   $emailres = mysqli_query($con, $selemail);
   $arr = mysqli_fetch_array($emailres);
     $otp = $arr['OTP'];
     if(isset($_POST['Register'])){
         $mainotp = $_POST['OTPVerify'];
         if($otp == $mainotp){
-            $que ="Update registration set Status='Active' where email='$email'";
+            $que ="Update registration_patient set Status='Active' where email='$email'";
             mysqli_query($con,$que);
             ?>
 <script>
-    location.replace("doctor_login.php");
+    location.replace("patient_login.php");
 </script>
 
 <?php
