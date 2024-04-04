@@ -24,7 +24,7 @@
         <a href="#index.html">Home</a>
         <a href="#doctor">Doctor</a>
         <a href="#services">Services</a>
-        <a href="#Appoinment">Appoinment</a>
+        <a href="patient/appointment.php">Appoinment</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav_right">

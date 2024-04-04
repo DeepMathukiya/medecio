@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+<link rel="icon" href="../logo.png" type="image/icon">
+
+    <title>Appointment</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,7 +17,27 @@
     <!-- Mapbox API Imports -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        .Appointment{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            background-color: ;
+            width: auto;
+            max-height: 400px;
+            border-radius: 10px;
+        }
+        .Appointment button{
+            background-color: white;
+            border-radius: 10px;
+        }
+        .Appointment button:hover{
+  background: #3fbbc0;
+  color: black;
+}
 
+        </style>
     <script>
         // Mapbox GL JS
 

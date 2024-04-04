@@ -1,5 +1,8 @@
 <html>
-    <head><title>For Receptientist</title>
+    <head>
+    <link rel="icon" href="../logo.png" type="image/icon">
+
+      <title>For Receptientist</title>
     <style>
         .header{
             display: flex;

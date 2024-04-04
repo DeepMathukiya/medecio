@@ -1,6 +1,8 @@
 <html>
     <head>
-        <title>For Doctor</title>
+    <link rel="icon" href="../logo.png" type="image/icon">
+
+        <title>Patient</title>
         <script src="https://kit.fontawesome.com/50c045cb63.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,6 +16,20 @@
   align-items: center;
   font-size: 1.5rem;
   overflow:hidden;
+    }
+    table{
+        margin:40px ;
+        align-self: center;
+    }
+    th{
+        width: 100px;
+        overflow: auto;
+        
+    }
+    td{
+        width: 100px;
+        max-width: 200px;
+        overflow: auto;
     }
     </style>
     </head>

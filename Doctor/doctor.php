@@ -1,5 +1,7 @@
 <html>
     <head>
+    <link rel="icon" href="../logo.png" type="image/icon">
+
         <title>For Doctor</title>
         <script src="https://kit.fontawesome.com/50c045cb63.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
