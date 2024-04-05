@@ -116,13 +116,29 @@ try {
         if($otp == $mainotp){
             $que ="Update registration set Status='Active' where email='$email'";
             mysqli_query($con,$que);
+            $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
+            $createTable = "create table IF NOT EXISTS $tableName(
+                id INT(255) AUTO_INCREMENT PRIMARY KEY,
+                PeName varchar(255),
+                PeAge INT(255),
+                PeGender varchar(255),
+                PeEmail varchar(255),
+                PeNumber varchar(255),
+                PeIssue varchar(255),
+                PeDES varchar(255),
+                Pecare varchar(255),
+                date Date
+            );";
+            $result = mysqli_query($con, $createTable);
+            if($result){
             ?>
 <script>
     location.replace("doctor_login.php");
 </script>
 
 <?php
-        }else{
+      }
+      }else{
             ?>
 <script>
     alert("Wrong OTP");

@@ -100,6 +100,12 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+?>
+<script>
+    alert("Please check your Mail")
+    location.replace("patient_login.php")
+</script>
+<?php
            
         }else{
             ?>

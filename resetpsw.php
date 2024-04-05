@@ -69,6 +69,12 @@ if(isset($_POST['submit'])){
     if($pass = $conpass){
     $que1 = "update registration set pass = '$cpass' where pass='$pass1'";
     $res2  = mysqli_query($con , $que1);
+    ?>
+    <script>
+      alert("password reset successfully");
+      location.replace("doctor_login.php");
+      </script>
+    <?php
   }
     else{
 ?>
@@ -79,8 +85,8 @@ if(isset($_POST['submit'])){
   else{
     ?>
 <script>
-  alert("don`t try to oversmart");
-    location.replace("/");
+  alert("password reset link is invalid");
+    location.replace("forgotpsw.php");
 </script>
 
 <?php

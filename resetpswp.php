@@ -69,10 +69,19 @@ if(isset($_POST['submit'])){
     if($pass = $conpass){
     $que1 = "update registration_patient set pass = '$cpass' where pass='$pass1'";
     $res2  = mysqli_query($con , $que1);
+    ?>
+    <script>
+      alert("password reset successfully");
+      location.replace("patient_login.php");
+      </script>
+    <?php
   }
+  
     else{
 ?>
-<script>alert("confirm password should be matched");</script>
+
+<script>alert("confirm password should be matched")
+</script>
 <?php
     }
   }
