@@ -268,7 +268,6 @@
       </form>
     </div>
     <?php
-ob_start();
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
@@ -345,17 +344,17 @@ ob_start();
             $mail->Body    = "$bodyt";
         
             $mail->send();
-?>
-<script>
-alert("You will get a mail fot the status of a Appointement");
-location.replace("index.php");
-</script><?php
+
           } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         
       }
+      ?>
+<script>
+alert("You will get a mail fot the status of a Appointement");
+location.replace("../index.php");
+</script><?php
     }
-    ob_end_flush();
     ?>
 </body>
 
