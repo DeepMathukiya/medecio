@@ -268,7 +268,7 @@
       </form>
     </div>
     <?php
-
+ob_start();
 
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
@@ -305,13 +305,14 @@
                     
                         );";
       $result = mysqli_query($con, $createTable);
-      $que2 = "select * from registration where id = $docid";
+      
+      $que2 = "select * from registration where id=$docid";
       $res2 = mysqli_query($con, $que2);
-
       $row = mysqli_fetch_assoc($res2);
-      $DoName = $row['Name'];
-      $email = $row['Email'];
-      $DoNumber = $row['Number'];
+      $DoName = $row['name'];
+      $email = $row['email'];
+      $DoNumber = $row['number'];
+
       $insert = "insert into $tableName (DoName,DoEmail,DoNumber,Issue,date) values('$DoName','$email','$DoNumber', '$PeIssue','$date')";
       $result3 = mysqli_query($con, $insert);
       $bodyt="
@@ -320,7 +321,7 @@
 
       <p> Here is a request for an appointment from $PeName , on $date at $ <br>
       ";
-       if($result3){
+    
         $mail = new PHPMailer(true);
 
         try {
@@ -344,12 +345,17 @@
             $mail->Body    = "$bodyt";
         
             $mail->send();
-            header("Location: doctor.php");
-        } catch (Exception $e) {
+?>
+<script>
+alert("You will get a mail fot the status of a Appointement");
+location.replace("index.php");
+</script><?php
+          } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        }
+        
       }
     }
+    ob_end_flush();
     ?>
 </body>
 
