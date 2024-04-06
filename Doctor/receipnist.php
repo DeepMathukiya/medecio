@@ -260,7 +260,7 @@ if(isset($_POST['submit'])){
     $today = date("Y-m-d");
 
     $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);                  
-    $insertQue = "insert into $tableName (PeName,PeAge,PeGender,PeEmail,PeIssue,date) values ('$PeName','$PeAge','$Gender','$PeEmail','$PeIssue','$today')";
+    $insertQue = "insert into $tableName (PeName,PeAge,PeGender,PeEmail,PeIssue,PeNumber,date) values ('$PeName','$PeAge','$Gender','$PeEmail','$PeIssue','$PeNumber','$today')";
     $res = mysqli_query($con,$insertQue);
     if($res){
         ?>

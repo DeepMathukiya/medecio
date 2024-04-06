@@ -227,7 +227,7 @@
           <label for="name" class="form__label">Number</label>
         </div>
         <div class="form__group field">
-          <input type="text" class="form__field" placeholder="Name" name="PeEmail" id='name' required />
+          <input type="email" class="form__field" placeholder="Name" name="PeEmail" id='name' required />
           <label for="name" class="form__label">Email</label>
         </div>
         <div class="form__group field">
@@ -314,12 +314,24 @@
 
       $insert = "insert into $tableName (DoName,DoEmail,DoNumber,Issue,date) values('$DoName','$email','$DoNumber', '$PeIssue','$date')";
       $result3 = mysqli_query($con, $insert);
-      $bodyt="
-      Hey Doctor,<br>
-      <b>$DoName</b>
+   
+      $tableName2 = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);                  
+      
+      $insertQue = "insert into $tableName2 (PeName,PeAge,PeGender,PeEmail,PeIssue,PeNumber,date) values ('$PeName','$PeAge','$Gender','$PeEmail','$PeIssue','$PeNumber','$date')";
+    $res = mysqli_query($con,$insertQue);
 
-      <p> Here is a request for an appointment from $PeName , on $date at $ <br>
-      ";
+      $id =  "Select * from $tableName2 where PeEmail='$PeEmail' and date='$date'";
+      $res3= mysqli_query($con,$id);
+    $row2 = mysqli_fetch_assoc($res3);
+    $res5 = $row2['id'];
+      $bodyt="Hey Doctor,<br>$DoName
+
+      <p> Here is a request for an appointment from <b>$PeName</b> , on <b>$date</b> at <b>$time</b> for <b>$PeIssue</b>.
+      <br>
+             <a href='http://localhost/medecio/Doctor/BookStatus?id=$res5&tbl=$tableName2&btn=y'>
+            <button style='color: green; background-color: white; border: 2px solid black;'>  &#10004; Accept</Button></a>
+                <a href='http://localhost/medecio/Doctor/BookStatus?id=$res5&tbl=$tableName2&btn=n'>
+<Button style='color: red; background-color: white; border: 2px solid black;'>&#10060; Reject</Button></a>";
     
         $mail = new PHPMailer(true);
 
