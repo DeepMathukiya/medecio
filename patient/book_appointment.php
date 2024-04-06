@@ -328,9 +328,9 @@
 
       <p> Here is a request for an appointment from <b>$PeName</b> , on <b>$date</b> at <b>$time</b> for <b>$PeIssue</b>.
       <br>
-             <a href='http://localhost/medecio/Doctor/BookStatus.php?id=$res5&tbl=$tableName2&btn=y'>
+             <a href='http://localhost/medecio/Doctor/BookStatus.php?id=$res5&docm=$email&btn=y'>
             <button style='color: green; background-color: white; border: 2px solid black;'>  &#10004; Accept</Button></a>
-                <a href='http://localhost/medecio/Doctor/BookStatus.php?id=$res5&tbl=$tableName2&btn=n'>
+                <a href='http://localhost/medecio/Doctor/BookStatus.php?id=$res5&docm=$email&btn=n'>
 <Button style='color: red; background-color: white; border: 2px solid black;'>&#10060; Reject</Button></a>";
     
         $mail = new PHPMailer(true);
