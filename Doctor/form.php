@@ -310,6 +310,14 @@
 
 
     include '../connection.php';
+    if (!isset($_COOKIE['emailid'])){
+        ?>
+<script>
+alert("Please login");
+location.replace("../doctor_login.php")
+</script>
+<?php
+      }
     $ids = $_GET['id'];
     $email = $_COOKIE['emailid'];
     $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);

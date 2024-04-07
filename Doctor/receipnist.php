@@ -249,6 +249,14 @@ function active() {
         </div>
 <?php
 include "../connection.php";
+if (!isset($_COOKIE['emailid'])){
+  ?>
+<script>
+alert("Please login");
+location.replace("../doctor_login.php")
+</script>
+<?php
+}
 if(isset($_POST['submit'])){
     $PeName =$_POST['PeName'];
     $PeAge = $_POST['PeAge'];

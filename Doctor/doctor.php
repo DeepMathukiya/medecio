@@ -125,6 +125,14 @@ cursor: pointer;
                   -->
             <?php
             include '../connection.php'; 
+            if (!isset($_COOKIE['emailid'])){
+              ?>
+<script>
+  alert("Please login");
+  location.replace("../doctor_login.php")
+</script>
+<?php
+            }
             if(isset($_POST['submit'])){
             $PeEmail =$_POST['PeEmail'];
             $email = $_COOKIE['emailid'];      
