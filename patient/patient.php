@@ -36,6 +36,14 @@
     <body>
         <div class="mt-5 "><a href="appointment.php"><button type="button" class="btn btn-primary">Book Appointement</button></a></div>
     <?php
+     if (!isset($_COOKIE['emailidp'])){
+        ?>
+<script>
+    alert("Please Login First")
+    location.replace("../patient_login.php");
+</script>
+        <?php
+     }
     include "../connection.php";
     $email = $_COOKIE['emailidp'];
     $tableName = 'patient_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);

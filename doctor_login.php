@@ -51,8 +51,7 @@
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" id="form3Example4cd" name="pass"
-                                                    class="form-control"
-                                                    value="<?php if (isset($_COOKIE['pass'])) {
+                                                    class="form-control" value="<?php if (isset($_COOKIE['pass'])) {
                                                         echo $_COOKIE['pass'];
                                                     } ?>" />
                                                 <label class="form-label" for="form3Example4cd">
@@ -86,7 +85,7 @@
     if (isset($_POST['submit1'])) {
         $email = $_POST['email'];
         $pass = $_POST['pass'];
-        $que = "select * from registration where email ='$email'";
+        $que = "select * from registration where email ='$email' ";
         $resQue = mysqli_query($con, $que);
         $noOfRow = mysqli_num_rows($resQue);
         if ($noOfRow) {
@@ -100,18 +99,34 @@
                 <?php
             } else {
                 $get_pass = $row['pass'];
-                $_SESSION['username'] = $row['name'];
                 if (password_verify($pass, $get_pass)) {
                     setcookie('emailid', $email, time() + 86400);
                     setcookie('pass', $pass, time() + 86400);
-
-                    ?>
-                    <script>
-                        location.replace("Doctor/doctor.php");
-
-                    </script>
-                    <?php
-
+                    $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
+                    $createTable = "create table IF NOT EXISTS $tableName(
+                        id INT(255) AUTO_INCREMENT PRIMARY KEY,
+                            DoName varchar(255),
+                            DoEmail varchar(255),
+                            DONumber varchar(255),
+                            Issue varchar(255),
+                            DES varchar(255),
+                            care varchar(255),
+                            date DATE
+                    );";
+                    $result = mysqli_query($con, $createTable);
+                    if ($result) {
+                        ?>
+                        <script>
+                            location.replace("Doctor/doctor.php");
+                        </script>
+                        <?php
+                    } else { 
+                        ?>
+                        <script>
+                            alert("Unable to create table");
+                        </script>
+                        <?php
+                    }
 
                 } else {
                     ?>

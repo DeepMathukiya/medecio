@@ -128,7 +128,7 @@ cursor: pointer;
             if (!isset($_COOKIE['emailid'])){
               ?>
 <script>
-  alert("Please login");
+  alert("Please login first");
   location.replace("../doctor_login.php")
 </script>
 <?php
