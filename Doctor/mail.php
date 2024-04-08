@@ -1,6 +1,7 @@
 
 <?php
 
+session_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -8,7 +9,7 @@ include '../connection.php';
 
 $mails = $_GET['mail'];
 $id = $_GET['id'];
-$email = $_COOKIE['emailid'];
+$email = $_SESSION['emailid'];
 $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
 $showqu = "select * from $tableName where id={$id}";
 $showdat = mysqli_query($con, $showqu);

@@ -88,6 +88,9 @@ cursor: pointer;
 </style>
     </head>
     <body>
+    <?php
+    session_start();
+    ?>
         <div class="container">
         <div class="header"> <h3><a class="nurse" href="doctor.php">Doctor</a> / <a  href="receipnist.php">Receptionist</a></h3>
         </div>
@@ -124,8 +127,9 @@ cursor: pointer;
                 </tr>
                   -->
             <?php
-            include '../connection.php'; 
-            if (!isset($_COOKIE['emailid'])){
+            include '../connection.php';
+            session_start(); 
+            if (!isset($_SESSION['emailid'])){
               ?>
 <script>
   alert("Please login first");
@@ -135,7 +139,7 @@ cursor: pointer;
             }
             if(isset($_POST['submit'])){
             $PeEmail =$_POST['PeEmail'];
-            $email = $_COOKIE['emailid'];      
+            $email = $_SESSION['emailid'];      
             $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
             $que = "select * from $tableName where PeEmail LIKE '%".$PeEmail."%' or PeName LIKE '%".$PeEmail."% '";
             // $que = "select * from $tableName where PeEmail = '$PeEmail'";

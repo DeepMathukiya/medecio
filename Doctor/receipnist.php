@@ -189,6 +189,10 @@ background-image: linear-gradient(to right, aqua, #11998e);
     </style>
 </head>
 <body>
+
+<?php
+    session_start();
+    ?>
 <div class="container">
         <div class="header"> <h3><a href="doctor.php">Doctor</a> / <a class="nurse" href="receipnist.php">Receptionist</a></h3>
         </div>
@@ -249,7 +253,7 @@ function active() {
         </div>
 <?php
 include "../connection.php";
-if (!isset($_COOKIE['emailid'])){
+if (!isset($_SESSION['emailid'])){
   ?>
 <script>
 alert("Please login");
@@ -264,7 +268,7 @@ if(isset($_POST['submit'])){
     $PeEmail = $_POST['PeEmail'];
     $PeIssue = $_POST['PeIssue'];
     $PeNumber = $_POST['PeNumber'];
-    $email = $_COOKIE['emailid'];
+    $email = $_SESSION['emailid'];
     $today = date("Y-m-d");
 
     $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);                  

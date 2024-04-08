@@ -22,6 +22,9 @@
     email
     password
     number -->
+    <?php
+    session_start();
+    ?>
     <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -41,8 +44,8 @@
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="email" name="email" id="form3Example3c"
                                                     class="form-control"
-                                                    value="<?php if (isset($_COOKIE['emailidp'])) {
-                                                        echo $_COOKIE['emailidp'];
+                                                    value="<?php if (isset($_SESSION['emailidp'])) {
+                                                        echo $_SESSION['emailidp'];
                                                     } ?>" />
                                                 <label class="form-label" for="form3Example3c">Your Email</label>
                                             </div>
@@ -52,8 +55,8 @@
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" id="form3Example4cd" name="pass"
                                                     class="form-control"
-                                                    value="<?php if (isset($_COOKIE['passp'])) {
-                                                        echo $_COOKIE['passp'];
+                                                    value="<?php if (isset($_SESSION['passp'])) {
+                                                        echo $_SESSION['passp'];
                                                     } ?>" />
                                                 <label class="form-label" for="form3Example4cd">
                                                     password</label>
@@ -101,8 +104,9 @@
             } else {
                 $get_pass = $row['pass'];
                 if (password_verify($pass, $get_pass)) {
-                    setcookie('emailidp', $email, time() + 86400);
-                    setcookie('passp', $pass, time() + 86400);
+                    $_SESSION['emailidp']= $email;
+                    $_SESSION['passp']= $pass;
+                    $_SESSION['passp']= $pass;
 
                     $tableName = 'patient_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
                     $createTable = "create table IF NOT EXISTS $tableName(

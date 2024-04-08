@@ -307,10 +307,10 @@
 
 
     <?php
-
+session_start();
 
     include '../connection.php';
-    if (!isset($_COOKIE['emailid'])){
+    if (!isset($_SESSION['emailid'])){
         ?>
 <script>
 alert("Please login");
@@ -319,7 +319,7 @@ location.replace("../doctor_login.php")
 <?php
       }
     $ids = $_GET['id'];
-    $email = $_COOKIE['emailid'];
+    $email = $_SESSION['emailid'];
     $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
     $showqu = "select * from $tableName where id={$ids}";
     $showdat = mysqli_query($con, $showqu);
@@ -425,7 +425,7 @@ location.replace("../doctor_login.php")
                         $PeIssue = $_POST['PeIssue'];
                         $PeDES = $_POST['PeDES'];
                         $Pecare = $_POST['Pecare'];
-                        $email = $_COOKIE['emailid'];
+                        $email = $_SESSION['emailid'];
                         $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
                         $updateque = " update $tableName set PeName='$PeName',PeAge='$PeAge',
                             PeEmail='$PeEmail',PeIssue='$PeIssue' ,PeDES='$PeDES' ,Pecare='$Pecare' where id = $id ";    
