@@ -1,6 +1,9 @@
 <html>
 
 <head>
+    <?php
+    session_start();
+    ?>
 <link rel="icon" href="../logo.png" type="image/icon">
 
     <title>Update Doctor</title>
@@ -307,8 +310,6 @@
 
 
     <?php
-session_start();
-
     include '../connection.php';
     if (!isset($_SESSION['emailid'])){
         ?>
@@ -318,6 +319,7 @@ location.replace("../doctor_login.php")
 </script>
 <?php
       }
+
     $ids = $_GET['id'];
     $email = $_SESSION['emailid'];
     $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);

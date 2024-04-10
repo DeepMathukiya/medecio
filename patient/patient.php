@@ -15,26 +15,35 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  overflow:hidden;
+  overflow:auto;
+  position: relative;
     }
     table{
         margin:40px ;
         align-self: center;
+        overflow: auto;
+        border: 2px solid black;  
     }
     th{
         width: 100px;
         overflow: auto;
+        position: sticky;
+        top: 0;
+        border: 2px solid black;
+        background-color: blue;
         
     }
     td{
         width: 100px;
         max-width: 200px;
         overflow: auto;
+        border-right: 2px solid black;
     }
     </style>
     </head>
     <body>
-        <div class="mt-5 "><a href="appointment.php"><button type="button" class="btn btn-primary">Book Appointement</button></a></div>
+
+        <div class="mt-5 " style=""><a href="appointment.php"><button type="button" class="btn btn-primary">Book Appointement</button></a></div>
     <?php
     session_start();
      if (!isset($_SESSION['emailidp'])){
@@ -52,10 +61,11 @@
     $result = mysqli_query($con , $que);
     if($result->num_rows > 0 ){
         ?>
+        
         <table>
     <th>Issue</th>
     <th>date</th>
-    <th>DES</th>
+    <th>Description</th>
     <th>Doctor Name</th>
 
 <?php

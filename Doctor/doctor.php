@@ -13,7 +13,7 @@
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  overflow:hidden;
+  overflow:auto;
 }
         .header{
             display: flex;
@@ -128,7 +128,6 @@ cursor: pointer;
                   -->
             <?php
             include '../connection.php';
-            session_start(); 
             if (!isset($_SESSION['emailid'])){
               ?>
 <script>
