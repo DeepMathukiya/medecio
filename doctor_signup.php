@@ -118,7 +118,7 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="text" id="form3Example4c" name="number" class="form-control" required />
+                                                <input type="tel" id="form3Example4c" name="number" class="form-control" required />
                                                 <label class="form-label" for="form3Example4c">Phone Number</label>
                                             </div>
                                         </div>

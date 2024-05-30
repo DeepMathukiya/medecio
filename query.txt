@@ -1,0 +1,10 @@
+1.
+CREATE TABLE registration (id INT , name VARCHAR(255), cname VARCHAR(255), number VARCHAR(255), email VARCHAR(255),
+pass VARCHAR(255), location VARCHAR(255), spciality VARCHAR(255), OTP VARCHAR(255),status ENUM('Active', 'DeActivate') DEFAULT 'DeActivate' );
+
+2.
+CREATE TABLE registration_patient (id INT, name VARCHAR(255), DOB DATE, Gender VARCHAR(1), email VARCHAR(255),
+pass VARCHAR(255), Phone VARCHAR(255), OTP VARCHAR(255),status ENUM('Active', 'DeActivate') DEFAULT 'DeActivate' );
+
+3.
+

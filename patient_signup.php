@@ -2,247 +2,122 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="logo.png" type="image/icon">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/icon">
 
-  <title>Patient</title>
-  <style>
-    .header {
-      display: flex;
-      width: 50vw;
-      justify-content: center;
-    }
-
-    .header {
-      color: #3fbbc0;
-
-    }
-
-    .form__group {
-      position: relative;
-      padding: 15px 0 0;
-      margin-top: 10px;
-      width: 100%;
-    }
-
-    .form__field {
-      font-family: inherit;
-      width: 100%;
-      border: 0;
-      border-bottom: 2px solid #9b9b9b;
-      outline: 0;
-      font-size: 1.3rem;
-      color: black;
-      padding: 7px 0;
-      background: transparent;
-      transition: border-color 0.2s;
-    }
-
-    .form__field::placeholder {
-      color: transparent;
-    }
-
-    .form__field:placeholder-shown~.form__label {
-      font-size: 1.3rem;
-      cursor: text;
-      top: 20px;
-    }
-
-    .form__label {
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 1rem;
-      color: #9b9b9b;
-    }
-
-    .form__field:focus {
-      padding-bottom: 6px;
-      font-weight: 700;
-      border-width: 3px;
-      border-image: linear-gradient(to right, #11998e, #38ef7d);
-      border-image-slice: 1;
-    }
-
-    .form__field:focus~.form__label {
-      position: absolute;
-      top: 0;
-      display: block;
-      transition: 0.2s;
-      font-size: 1rem;
-      color: #11998e;
-      font-weight: 700;
-    }
-
-    /* reset input */
-    .form__field:required,
-    .form__field:invalid {
-      box-shadow: none;
-    }
-
-    /* demo */
-    body {
-      font-family: "Poppins", sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.5rem;
-      overflow: hidden;
-    }
-
-
-    .wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    button {
-      font-family: 'Ubuntu', sans-serif;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      width: 170px;
-      height: 40px;
-      line-height: 1;
-      font-size: 18px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      border: 3px solid #3fbbc0;
-      background: #fff;
-      color: black;
-      border-radius: 40px;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all .35s;
-    }
-
-    button:hover {
-      background: #3fbbc0;
-      color: black;
-    }
-
-    button span {
-      opacity: 1;
-      visibility: visible;
-      transition: all .35s;
-    }
-
-    .success {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      border-radius: 50%;
-      z-index: 1;
-      opacity: 0;
-      visibility: hidden;
-      transition: all .35s;
-    }
-
-    .success svg {
-      width: 20px;
-      height: 20px;
-      fill: yellowgreen;
-      transform-origin: 50% 50%;
-      transform: translateY(-50%) rotate(0deg) scale(0);
-      transition: all .35s;
-    }
-
-    button.is_active {
-      width: 40px;
-      height: 40px;
-    }
-
-    button.is_active .success {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    button.is_active .success svg {
-      margin-top: 50%;
-      transform: translateY(-50%) rotate(720deg) scale(1);
-    }
-
-    button.is_active span {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .rec_submit_div {
-      display: flex;
-      justify-content: center;
-    }
-
-    .rec_submit {
-      font-size: 15px;
-      width: 150px;
-      height: 40px;
-      margin-top: 50px;
-      padding: 5px 10px;
-      border-radius: 20px;
-      background-color: white;
-    }
-
-    .rec_submit:hover {
-      background-image: linear-gradient(to right, aqua, #11998e);
-    }
-  </style>
+    <title>Patient</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Mapbox API Imports -->
+ 
 </head>
 
 <body>
-  <div class="container">
-    <div class="header">
-      <h3>Patient Login</h3>
-    </div>
-    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> <a href="patient_signup.php" >Sign Up </a> / <a href="doctor_login.php" class="active">Login</a></p>
+<section class="%-100" style="background-color: #eee;">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-lg-12 col-xl-11">
+                    <div class="card text-black" style="border-radius: 25px;">
+                        <div class="card-body p-md-5">
+                            <div class="row justify-content-center">
+                                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-    <div class="form">
-      <form action="" method="POST">
-        <div class="form__group field">
-          <input type="text" class="form__field" placeholder="Name" name="PeName" id='name' required />
-          <label for="name" class="form__label">Name</label>
-        </div>
-        <div class="form__group field">
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> <a href="patient_signup.php" >Sign Up </a> / <a href="patient_login.php" class="active">Login</a></p>
+
+      <form class="mx-1 mx-md-4" method="POST" action="" id="form1">
+        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="text" id="form3Example1c" name="PeName" class="form-control" required />
+                                                <label class="form-label" for="form3Example1c">Your Name</label>
+                                            </div>
+                                            </div>
+
+        <!-- <div class="form__group field">
           <input type="date" class="form__field" placeholder="Name" name="PeAge" id='name' required />
           <label for="name" class="form__label">Date of birth</label>
+        </div> -->
+        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="date" name="PeAge" id="form3Example1c" class="form-control" required />
+                                                <label class="form-label" for="form3Example1c">Date of birth</label>
+                                            </div>
+                                        </div>
+
+        <div class="d-flex flex-row align-items-center mb-4" style="margin-left : 15px;">
+        <div class="form__group field">
+          <input type="radio" class="form__field mb-0"  placeholder="Name" name="Gender" id='name' required />
+          <label for="name" class="form-label">Male</label>
         </div>
         <div class="form__group field">
-          <input type="radio" class="form__field" placeholder="Name" name="Gender" id='name' required />
-          <label for="name" class="form__label">Male</label>
+          <input type="radio" class="form__field mb-0" style="margin-left : 15px;" placeholder="Name" name="Gender" id='name' required />
+          <label for="name" class="form-label">Female</label>
         </div>
-        <div class="form__group field">
-          <input type="radio" class="form__field" placeholder="Name" name="Gender" id='name' required />
-          <label for="name" class="form__label">Female</label>
         </div>
-        <div class="form__group field">
+
+        <!-- <div class="form__group field">
           <input type="number" class="form__field" placeholder="Name" name="Phone" id='name' required />
           <label for="name" class="form__label">Mobile Number</label>
-        </div>
+        </div> -->
+        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="tel" name="Phone" id="form3Example1c" class="form-control" required />
+                                                <label class="form-label" for="form3Example1c">Mobile Number</label>
+                                            </div>
+                                        </div>
+<!-- 
         <div class="form__group field">
           <input type="email" class="form__field" placeholder="Name" name="PeEmail" id='name' required />
           <label for="name" class="form__label">Email</label>
-        </div>
-        <div class="form__group field">
+        </div> -->
+        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="email" name="PeEmail" id="form3Example3c" class="form-control" required />
+                                                <label class="form-label" for="form3Example3c">Your Email</label>
+                                            </div>
+                                        </div>
+        <!-- <div class="form__group field">
           <input type="Password" class="form__field" placeholder="Name" name="pass" id='name' required />
           <label for="name" class="form__label">Password</label>
-        </div>
+        </div> -->
+        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                            <div class="form-outline flex-fill mb-0">
+                                                <input type="password" name="pass" id="form3Example4cd" class="form-control" required />
+                                                <label class="form-label" for="form3Example4cd">
+                                                    password</label>
+                                            </div>
+                                        </div>
         
-        <div class="rec_submit_div">
+        <!-- <div class="rec_submit_div">
           <input class="rec_submit" type="submit" name="submit" value="submit">
-        </div>
+        </div> -->
 
+        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                            <input type="submit" value="Get OTP" id="OTP" class="btn btn-primary btn-lg" name="submit">
+                                        </div>
       </form>
     </div>
 
+<div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+    <img src="photo.jpeg" class="img-fluid" alt="Sample image">
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
     <?php
     
     use PHPMailer\PHPMailer\PHPMailer;

@@ -95,7 +95,7 @@
         $noOfRow = mysqli_num_rows($resQue);
         if ($noOfRow) {
             $row = mysqli_fetch_assoc($resQue);
-            if ($row['Status'] != "Active") {
+            if ($row['status'] != "Active") {
                 ?>
                 <script>
                     alert("Please verify your email first");

@@ -130,7 +130,7 @@
     $que = "Select * from registration where 1= 1";
     $res = mysqli_query($con, $que);
     while ($arr = mysqli_fetch_assoc($res)) {
-        if($arr['Status'] == "Active"){
+        if($arr['status'] == "Active"){
         $location = explode(",", $arr['location']);
 
     ?><script>
@@ -154,10 +154,7 @@
     <script>
         console.log(locations);
     </script>
-
-
-    <div class="mb-4" style="positon:relative">
-     
+    <div class="mb-4" style="positon:relative"> 
     <!-- <label for="PeLocation" class="form__label">Location</label> -->
         <div id='map' style='width: 100%; height: 1000px;'></div>
         <div class = "Appointment" id="Appointment" style="position:absolute ; top: 0; left: 0; background:white; display :flex;flex-direction:column;display:none;">
