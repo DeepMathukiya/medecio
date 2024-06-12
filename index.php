@@ -24,7 +24,7 @@
         <a href="#index.html">Home</a>
         <a href="#doctor">Doctor</a>
         <a href="#services">Services</a>
-        <a href="patient/appointment.php">Appoinment</a>
+        <a href="patient/appointment.php">Appointment</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="nav_right">
@@ -45,7 +45,7 @@
         <a href="#index.html">Home</a>
         <a href="#doctor">Doctor</a>
         <a href="#services">Services</a>
-        <a href="#Appoinment">Appoinment</a>
+        <a href="#Appointment">Appointment</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -55,42 +55,38 @@
     <div class="container p-3">
       <div class="row mt-5 my-row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-0 g-1 g-sm-1 g-md-2 g-lg-3">
         <div class="col">
-          <div class="my-box">
+          <div class="my-box" style="max-height : 370px">
             <i class="fa-solid fa-heart-pulse"></i>
-            <h2>Lorem Ipsum</h2>
-            <p>
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi
+            <h2>Receptionist</h2>
+            <p style="height:140px">
+              The receptionist can enter the patient's details, and the doctor can access this information using the patient's name or email.
             </p>
           </div>
         </div>
         <div class="col">
-          <div class="my-box">
+          <div class="my-box" style="max-height : 370px">
             <i class="fa-solid fa-pills"></i>
-            <h2>Lorem Ipsum</h2>
-            <p>
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi
+            <h2>Doctor</h2>
+            <p style="height:140px">
+              Doctors can add patient descriptions and prescriptions using text-to-speech, update patient details, and view patient histories.
             </p>
           </div>
         </div>
         <div class="col">
-          <div class="my-box">
+          <div class="my-box" style="max-height : 370px">
             <i class="fa-solid fa-thermometer"></i>
-            <h2>Lorem Ipsum</h2>
-            <p>
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi
+            <h2>Patient</h2>
+            <p style="height:140px">
+              Patients can track their previous illnesses and prescriptions, and also view details about their doctors.
             </p>
           </div>
         </div>
         <div class="col">
-          <div class="my-box">
+          <div class="my-box" style="max-height : 370px">
             <i class="fa-solid fa-dna"></i>
-            <h2>Lorem Ipsum</h2>
+            <h2>Advanced Diagnostics</h2>
             <p>
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi
+              Our advanced diagnostic tools help in early detection and treatment of diseases, ensuring better health outcomes.
             </p>
           </div>
         </div>
@@ -101,10 +97,7 @@
     <div class="container text-center p-5 mt-5" id="doctor">
       <h1 class="my-h1-und">DOCTORS</h1>
       <p class="lead p-3">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
-        aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
-        quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-        fugiat sit in iste officiis commodi quidem hic quas.
+        Our team of experienced doctors are dedicated to providing the highest quality care. They are here to support you with all your medical needs.
       </p>
     </div>
     <div class="container">
@@ -134,7 +127,7 @@
             </div>
           </div>
           <div class="border text-center p-2 my-dr-info">
-            <h5>Sarah Jhonson</h5>
+            <h5>Sarah Johnson</h5>
             <p class="lead">Chief Medical Officer</p>
           </div>
         </div>
@@ -164,7 +157,7 @@
           </div>
           <div class="border text-center p-2 my-dr-info">
             <h5>William Anderson</h5>
-            <p class="lead">Cardiology</p>
+            <p class="lead">Cardiologist</p>
           </div>
         </div>
       </div>
@@ -172,10 +165,7 @@
     <div class="container text-center mt-5" id="services">
       <h1 class="my-h1-und">SERVICES</h1>
       <p class="lead p-3">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
-        aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
-        quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-        fugiat sit in iste officiis commodi quidem hic quas.
+        We offer a wide range of medical services to meet your health care needs, from routine checkups to advanced diagnostics and treatments.
       </p>
     </div>
     <div class="container mt-5">
@@ -188,11 +178,10 @@
               </span>
             </div>
             <div class=" text-center my-icon-h4">
-              <h4 class="my-h1-und  ">Lorem Ipsum</h4>
+              <h4 class="my-h1-und">Cardiology</h4>
             </div>
             <p class="text-center mt-4">
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi sint occaecati cupiditate non
+              Our cardiology department offers state-of-the-art care for heart conditions, including diagnostics, treatment, and rehabilitation.
             </p>
           </div>
         </div>
@@ -204,11 +193,10 @@
               </span>
             </div>
             <div class=" text-center my-icon-h4">
-              <h4 class="my-h1-und  ">Lorem Ipsum</h4>
+              <h4 class="my-h1-und">Pharmacy</h4>
             </div>
             <p class="text-center mt-4">
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi sint occaecati cupiditate non
+              Our on-site pharmacy provides a convenient way to get your medications promptly and accurately, with professional advice on hand.
             </p>
           </div>
         </div>
@@ -220,11 +208,10 @@
               </span>
             </div>
             <div class=" text-center my-icon-h4">
-              <h4 class="my-h1-und  ">Lorem Ipsum</h4>
+              <h4 class="my-h1-und">Patient Care</h4>
             </div>
             <p class="text-center mt-4">
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi sint occaecati cupiditate non
+              We provide comprehensive patient care services to ensure your health and well-being, from preventive care to specialized treatments.
             </p>
           </div>
         </div>
@@ -236,11 +223,10 @@
               </span>
             </div>
             <div class=" text-center my-icon-h4">
-              <h4 class="my-h1-und  ">Lorem Ipsum</h4>
+              <h4 class="my-h1-und">Genetic Testing</h4>
             </div>
             <p class="text-center mt-4">
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi sint occaecati cupiditate non
+              Our genetic testing services provide insights into your genetic makeup, helping you make informed decisions about your health.
             </p>
           </div>
         </div>
@@ -252,11 +238,10 @@
               </span>
             </div>
             <div class=" text-center my-icon-h4">
-              <h4 class="my-h1-und  ">Lorem Ipsum</h4>
+              <h4 class="my-h1-und">Rehabilitation</h4>
             </div>
             <p class="text-center mt-4">
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi sint occaecati cupiditate non
+              Our rehabilitation services help patients recover from injuries and surgeries, improving mobility and quality of life.
             </p>
           </div>
         </div>
@@ -268,96 +253,29 @@
               </span>
             </div>
             <div class=" text-center my-icon-h4">
-              <h4 class="my-h1-und  ">Lorem Ipsum</h4>
+              <h4 class="my-h1-und">Medical Records</h4>
             </div>
             <p class="text-center mt-4">
-              Voluptatum deleniti atque corrupti quos dolores et quas
-              molestias excepturi sint occaecati cupiditate non
+              We maintain comprehensive and secure medical records for our patients, ensuring continuity of care and easy access to your health information.
             </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- <div class="container-fluid my-form-cont">
-    <div class="container text-center p-5 mt-5" id="Appoinment">
-      <h1 class="my-h1-und">MAKE AN APPOINTMENT</h1>
-      <p class="lead p-3">
-        Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
-        aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
-        quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-        fugiat sit in iste officiis commodi quidem hic quas.
-      </p>
-      <div>
-        <form action="" class="" method="POST">
-          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3">
-            <div class="col">
-              <label for="uname" class=""></label>
-              <input type="text" name="name" id="uname" class="p-2 w-100" placeholder="Your name" required>
 
-            </div>
-            <div class="col">
-              <label for="mail" class=""></label>
-              <input type="email" name="email" id="mail" class="p-2 w-100" placeholder="Your E-mail" required>
-
-            </div>
-            <div class="col">
-              <label for="phone" class=""></label>
-              <input type="tel" name="Phone" id="phone" class="p-2 w-100" placeholder="Your Phone" required>
-            </div>
-          </div>
-          <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3">
-            <div class="col">
-              <label for="date" class=""></label>
-              <input type="date" name="date" id="date" class="p-2 w-100" placeholder="Your name" required>
-            </div>
-            <div class="col">
-              <select name="dep" id="" class="p-2 w-100 mt-4">
-                <option value="1" selected>Select department</option>
-                <option value="2">department1</option>
-                <option value="3">department2</option>
-                <option value="4">department3</option>
-              </select>
-            </div>
-            <div class="col">
-              <select name="doc" id="" class="p-2 w-100 mt-4">
-                <option value="1" selected>Select doctor</option>
-                <option value="2">doctor1</option>
-                <option value="3">doctor2</option>
-                <option value="4">doctor3</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <textarea name="" class="p-3 w-100 mt-4" id="" cols="30" rows="5"
-                placeholder="Mesaage(optional)"></textarea>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col mt-4">
-              <input type="submit" name="submit1" class="btn my-oppo-btn rounded-5 px-4" value="Make an Appoitment"    style="padding: 10px;">
-            </div>
-          </div>
-        </form>
-      
-      </div>
-    </div>
-  </div> -->
   <div class="container text-center mt-5" id="contact">
     <h2 class="my-h1-und">CONTACT</h2>
     <p class="lead p-3">
-      Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
-      aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
-      quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-      fugiat sit in iste officiis commodi quidem hic quas.
+      We're here to help you with any questions or concerns. Reach out to us via phone, email, or visit our office for more information.
     </p>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
   <script>
-    <?php include 'script.js'?></script>
+    <?php include 'script.js'?>
+  </script>
 </body>
 
 </html>
