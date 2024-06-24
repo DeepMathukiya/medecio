@@ -58,9 +58,9 @@
    use PHPMailer\PHPMailer\SMTP;
    use PHPMailer\PHPMailer\Exception;
    include 'connection.php';
-   require 'phpMailer\Exception.php';
-   require 'phpMailer\PHPMailer.php';
-   require 'phpMailer\SMTP.php';
+   require 'phpMailer/Exception.php';
+   require 'phpMailer/PHPMailer.php';
+   require 'phpMailer/SMTP.php';
    if (isset($_POST["resendOtp"])){
    
    $rand1 = rand(1000 ,9999);

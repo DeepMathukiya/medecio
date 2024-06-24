@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <head>
     <link rel="icon" href="../logo.png" type="image/icon">
@@ -45,7 +48,6 @@
 
         <div class="mt-5 " style=""><a href="appointment.php"><button type="button" class="btn btn-primary">Book Appointement</button></a></div>
     <?php
-    session_start();
      if (!isset($_SESSION['emailidp'])){
         ?>
 <script>

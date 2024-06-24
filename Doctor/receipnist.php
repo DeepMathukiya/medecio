@@ -1,4 +1,8 @@
-<html>
+<?php
+session_start();
+?>
+
+    <html>
     <head>
     <link rel="icon" href="../logo.png" type="image/icon">
 
@@ -61,7 +65,7 @@
   border-image: linear-gradient(to right, #11998e, #38ef7d);
   border-image-slice: 1;
 }
-.form__field:focus ~ .form__label {
+.form__field:focus ~ .formre__label {
   position: absolute;
   top: 0;
   display: block;
@@ -190,9 +194,7 @@ background-image: linear-gradient(to right, aqua, #11998e);
 </head>
 <body>
 
-<?php
-    session_start();
-    ?>
+
 <div class="container">
         <div class="header"> <h3><a href="doctor.php">Doctor</a> / <a class="nurse" href="receipnist.php">Receptionist</a></h3>
         </div>

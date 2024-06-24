@@ -1,4 +1,8 @@
+<?php
+    session_start();
+    ?>
 <html>
+
     <head>
     <link rel="icon" href="../logo.png" type="image/icon">
 
@@ -88,9 +92,7 @@ cursor: pointer;
 </style>
     </head>
     <body>
-    <?php
-    session_start();
-    ?>
+   
         <div class="container">
         <div class="header"> <h3><a class="nurse" href="doctor.php">Doctor</a> / <a  href="receipnist.php">Receptionist</a></h3>
         </div>

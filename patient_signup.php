@@ -147,9 +147,9 @@ if($emailcount>0){
         <?php
 }
 else {
-  require 'phpMailer\Exception.php';
-  require 'phpMailer\PHPMailer.php';
-  require 'phpMailer\SMTP.php';
+  require 'phpMailer/Exception.php';
+  require 'phpMailer/PHPMailer.php';
+  require 'phpMailer/SMTP.php';
  
       $rand = rand(1000 ,9999);
         $insertQue = "insert into registration_patient(name,DOB,Gender,email,pass,Phone,OTP) values ('$PeName','$PeAge','$Gender','$email','$cpass','$Phone','$rand')";

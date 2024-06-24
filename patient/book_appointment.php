@@ -273,9 +273,9 @@
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
 
-    require '..\phpMailer\Exception.php';
-    require '..\phpMailer\PHPMailer.php';
-    require '..\phpMailer\SMTP.php';
+    require '../phpMailer/Exception.php';
+    require '../phpMailer/PHPMailer.php';
+    require '../phpMailer/SMTP.php';
 
 
     include "../connection.php";

@@ -1,9 +1,9 @@
+<?php
+session_start(); ?>
 <html>
 
 <head>
-    <?php
-    session_start();
-    ?>
+   
 <link rel="icon" href="../logo.png" type="image/icon">
 
     <title>Update Doctor</title>

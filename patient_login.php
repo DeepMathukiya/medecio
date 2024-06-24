@@ -1,3 +1,6 @@
+<?php
+    session_start();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,9 +25,7 @@
     email
     password
     number -->
-    <?php
-    session_start();
-    ?>
+    
     <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">

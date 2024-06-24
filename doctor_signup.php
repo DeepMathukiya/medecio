@@ -211,6 +211,10 @@
     use PHPMailer\PHPMailer\PHPMailer;
     use PHPMailer\PHPMailer\SMTP;
     use PHPMailer\PHPMailer\Exception;
+    
+    require 'phpMailer/Exception.php';
+    require 'phpMailer/PHPMailer.php';
+    require 'phpMailer/SMTP.php';
        
     include 'connection.php';
     if (isset($_POST['submit1'])) {
@@ -235,9 +239,7 @@
             <?php
         }
         else{
-        require 'phpMailer\Exception.php';
-        require 'phpMailer\PHPMailer.php';
-        require 'phpMailer\SMTP.php';
+        
        
             $rand = rand(1000 ,9999);
             $insertQue = "insert into registration(name,cname,number,email,pass,location,spciality ,OTP) values ('$name','$cname','$number','$email','$cpass','$PeLocation','$spciality','$rand')";
@@ -277,8 +279,6 @@ try {
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
-
-
             }
         }
     

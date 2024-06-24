@@ -69,9 +69,9 @@
         $noOfRow = mysqli_num_rows($res);
         $arr = mysqli_fetch_array($res);
         if($noOfRow){
-            require 'phpMailer\Exception.php';
-            require 'phpMailer\PHPMailer.php';
-            require 'phpMailer\SMTP.php';
+            require 'phpMailer/Exception.php';
+            require 'phpMailer/PHPMailer.php';
+            require 'phpMailer/SMTP.php';
 
             $mail = new PHPMailer(true);
 
