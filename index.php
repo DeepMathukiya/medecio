@@ -270,6 +270,38 @@
       We're here to help you with any questions or concerns. Reach out to us via phone, email, or visit our office for more information.
     </p>
   </div>
+
+  <?php
+  include "connection.php";
+  $createTable = "create table IF NOT EXISTS registration(
+    id INT(255) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255), 
+    cname VARCHAR(255), 
+    number VARCHAR(255), 
+    email VARCHAR(255),
+    pass VARCHAR(255), 
+    location VARCHAR(255), 
+    spciality VARCHAR(255),
+    OTP VARCHAR(255),
+    status ENUM('Active', 'DeActivate') DEFAULT 'DeActivate' 
+);";
+$result = mysqli_query($con, $createTable);
+
+$createTable2 = "create table IF NOT EXISTS registration_patient(
+  id INT(255) AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255), 
+  DOB DATE,
+  Gender VARCHAR(10), 
+  email VARCHAR(255),
+  pass VARCHAR(255), 
+  Phone VARCHAR(255), 
+  OTP VARCHAR(255),
+  status ENUM('Active', 'DeActivate') DEFAULT 'DeActivate' 
+);";
+$result2 = mysqli_query($con, $createTable2);
+
+  ?>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>

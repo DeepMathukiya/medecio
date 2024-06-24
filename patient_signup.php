@@ -26,7 +26,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> <a href="patient_signup.php" >Sign Up </a> / <a href="patient_login.php" class="active">Login</a></p>
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4"> <a href="patient_signup.php" class ="active">Sign Up </a> / <a href="patient_login.php" >Login</a></p>
 
       <form class="mx-1 mx-md-4" method="POST" action="" id="form1">
         <div class="d-flex flex-row align-items-center mb-4">

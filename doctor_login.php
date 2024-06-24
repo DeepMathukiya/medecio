@@ -109,12 +109,14 @@
                     $tableName = 'user_' . preg_replace("/[^a-zA-Z0-9]+/", "", $email);
                     $createTable = "create table IF NOT EXISTS $tableName(
                         id INT(255) AUTO_INCREMENT PRIMARY KEY,
-                            DoName varchar(255),
-                            DoEmail varchar(255),
-                            DONumber varchar(255),
-                            Issue varchar(255),
-                            DES varchar(255),
-                            care varchar(255),
+                            PeName varchar(255),
+                            PeAge int(10),
+                            PeGender varchar(255),
+                            PeEmail varchar(255),
+                            PeIssue varchar(255),
+                            PeDES varchar(255),
+                            Pecare varchar(255),
+                            PeNumber varchar(255),
                             date DATE
                     );";
                     $result = mysqli_query($con, $createTable);

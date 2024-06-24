@@ -8,3 +8,4 @@ pass VARCHAR(255), Phone VARCHAR(255), OTP VARCHAR(255),status ENUM('Active', 'D
 
 3.
 
+docker-php-ext-install mysqli && docker-php-ext-enable mysqli && apachectl restart
