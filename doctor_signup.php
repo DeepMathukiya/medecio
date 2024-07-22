@@ -15,6 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Mapbox API Imports -->
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
     <script>
         // Mapbox GL JS
@@ -184,7 +186,8 @@
 
 
 
-
+                                        
+      <div class="g-recaptcha d-flex justify-content-center mx-4 mb-3 mb-lg-4" data-sitekey="6LeDBxYqAAAAALoLi3gPjrxeL5p3Ew6rqbAQ3nzT"></div>
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <input type="submit" value="Get OTP" id="OTP" class="btn btn-primary btn-lg" name="submit1">
                                         </div>

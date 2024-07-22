@@ -12,6 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <!-- Mapbox API Imports -->
  
 </head>
@@ -99,6 +101,7 @@
         <!-- <div class="rec_submit_div">
           <input class="rec_submit" type="submit" name="submit" value="submit">
         </div> -->
+        <div class="g-recaptcha d-flex justify-content-center mx-4 mb-3 mb-lg-4" data-sitekey="6LeDBxYqAAAAALoLi3gPjrxeL5p3Ew6rqbAQ3nzT"></div>
 
         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <input type="submit" value="Get OTP" id="OTP" class="btn btn-primary btn-lg" name="submit">

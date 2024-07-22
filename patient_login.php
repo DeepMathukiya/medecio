@@ -15,6 +15,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <style>
     </style>
 </head>
@@ -63,6 +65,7 @@
                                                     password</label>
                                             </div>
                                         </div>
+                                        <div class="g-recaptcha d-flex justify-content-center mx-4 mb-3 mb-lg-4" data-sitekey="6LeDBxYqAAAAALoLi3gPjrxeL5p3Ew6rqbAQ3nzT"></div>
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <input type="submit" value="Login" class="btn btn-primary btn-lg"
@@ -71,7 +74,7 @@
 
 
                                     </form>
-                                    <a href="forgetpassp.php">forget password</a>
+                                    <a href="forgetpassp.php" class="d-flex">forget password</a>
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
