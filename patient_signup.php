@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -128,6 +131,8 @@
     use PHPMailer\PHPMailer\Exception;
 include 'connection.php';
 if(isset($_POST['submit'])){
+  if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+        
 $PeName =$_POST['PeName'];
 $PeAge = $_POST['PeAge'];
 $Gender = $_POST['Gender'];
@@ -183,6 +188,7 @@ try {
     $mail->Body    = "$rand";
 
     $mail->send();
+    $_SESSION['timeP'] = date('d-m-y h:i:s');
             ?>
             <script>
                     location.replace("verifyp.php?email=<?php echo $email; ?>");
@@ -193,6 +199,7 @@ try {
           } 
              }
 
+}
 }
 }
 

@@ -1,3 +1,6 @@
+<?php
+ session_start();
+ ?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -221,6 +224,8 @@
        
     include 'connection.php';
     if (isset($_POST['submit1'])) {
+        if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+        
         $name = $_POST['name'];
         $cname = $_POST['cname'];
         $number = $_POST['number'];
@@ -273,6 +278,7 @@ try {
     $mail->Body    = "$rand";
 
     $mail->send();
+    $_SESSION['timeD'] = date('d-m-y h:i:s');
 ?>
 
 <script>
@@ -286,6 +292,7 @@ try {
         }
     
     }
+}
     ?>
    
 </script>

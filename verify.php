@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -91,6 +94,7 @@ try {
     $mail->Body    = "$rand1";
 
     $mail->send();
+    $_SESSION["timeD"] = date('d-m-y H:i:s');
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
@@ -112,6 +116,22 @@ try {
   $arr = mysqli_fetch_array($emailres);
     $otp = $arr['OTP'];
     if(isset($_POST['Register'])){
+        $storedDate = $_SESSION["timeD"];
+        $date1 = DateTime::createFromFormat('d-m-y H:i:s', $storedDate);
+        $currd = new DateTime('now');
+        $interval = $date1->diff($currd);
+        $totalSeconds = ($interval->days * 24 * 60 * 60) + 
+                    ($interval->h * 60 * 60) + 
+                    ($interval->i * 60) + 
+                    $interval->s;
+
+        if($totalSeconds >90){
+            ?>
+            <script>
+                alert("OTP expired");
+            </script>
+            <?php
+        }else{
         $mainotp = $_POST['OTPVerify'];
         if($otp == $mainotp){
             $que ="Update registration set Status='Active' where email='$email'";
@@ -145,7 +165,7 @@ try {
 </script>
             <?php
         }
-
+    }
     }
  
   

@@ -74,7 +74,7 @@
 
 
                                     </form>
-                                    <a href="forgetpassp.php" class="d-flex">forget password</a>
+                                    <a href="forgetpassp.php" class="d-flex justify-content-center">forget password</a>
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
@@ -91,6 +91,8 @@
     <?php
     include 'connection.php';
     if (isset($_POST['submit1'])) {
+        if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+        
         $email = $_POST['email'];
         $pass = $_POST['pass'];
         $que = "select * from registration_patient where email ='$email'";
@@ -157,6 +159,7 @@
 
 
     }
+}
     ?>
 </body>
 <script src="script.js"></script>
